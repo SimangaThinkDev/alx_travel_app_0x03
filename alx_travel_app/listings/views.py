@@ -1,9 +1,9 @@
 # listings/views.py
-
 from rest_framework import viewsets
 from .models import Listing, Booking
 from .serializers import ListingSerializer, BookingSerializer
 from rest_framework.response import Response
+import tasks
 
 class ListingViewSet(viewsets.ModelViewSet):
     """
@@ -26,6 +26,8 @@ class BookingViewSet( viewsets.ModelViewSet ):
 
     def booking_view( self, request ):
         serializer = BookingSerializer( self.queryset )
+        from_email = request.POST.get("from_email", "")
+        tasks.send_confirmation_email.delay( from_email )
         return Response( serializer.data )
 
 """

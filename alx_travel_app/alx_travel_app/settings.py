@@ -177,3 +177,29 @@ CORS_ALLOW_HEADERS = [
 SWAGGER_SETTINGS = {
    'DEFAULT_INFO': 'some_package.swagger.DEFAULT_INFO', # Path to a custom swagger info object
 }
+
+
+# ------------------------- Celery ---------------------------------------
+
+# myproject/settings.py
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+# ------------------------- Django Email Feature ------------------------------
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Set-up SMTP
+from dotenv import load_dotenv
+
+load_dotenv()  # loads environment variables from .env file
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('SMTP_PASSWORD')
+EMAIL_HOST_PASSWORD = os.getenv('SMTP_EMAIL')
