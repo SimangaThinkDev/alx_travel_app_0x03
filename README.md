@@ -39,7 +39,7 @@ You'll need the following installed on your machine:
 
 1.  **Clone the repository**:
     ```
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    git clone [https://github.com/SimangaThinkDev/alx-travel-app-0x03.git](https://github.com/your-username/your-repo-name.git)
     cd your-repo-name
     ```
 
