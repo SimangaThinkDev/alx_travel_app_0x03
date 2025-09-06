@@ -10,7 +10,7 @@ services:
     name: alx_travel_app
     runtime: python
     buildCommand: './build.sh'
-    startCommand: 'python3 -m gunicorn alx_travel_app.asgi:application -k uvicorn.workers.UvicornWorker'
+    startCommand: 'gunicorn alx_travel_app.asgi:application'
     envVars:
       - key: DATABASE_URL
         fromDatabase:
