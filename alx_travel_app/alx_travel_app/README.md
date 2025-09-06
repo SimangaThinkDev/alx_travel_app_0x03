@@ -1,3 +1,0 @@
-## Django Listing & Booking API
-
-This project is a web application built using Django and Django REST Framework, designed to manage property or service listings, facilitate user bookings for these listings, and enable a review system. It provides a comprehensive set of API endpoints for creating, retrieving, updating, and deleting listings, as well as managing associated bookings and user reviews, making it a flexible backend for a marketplace or booking platform.

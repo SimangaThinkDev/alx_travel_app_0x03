@@ -114,4 +114,3 @@ The API follows a RESTful design. Here's a quick overview of the main endpoints.
     * `GET`: View the interactive API documentation. 
 
 For a full list of endpoints and their request/response schemas, please refer to the OpenAPI documentation.
-# alx_travel_app_0x03
