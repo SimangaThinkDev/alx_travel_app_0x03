@@ -1,9 +1,9 @@
 # listings/views.py
 from rest_framework import viewsets
-from .models import Listing, Booking
-from .serializers import ListingSerializer, BookingSerializer
+from .models import Listing, Booking, Review
+from .serializers import ListingSerializer, BookingSerializer, ReviewSerializer
 from rest_framework.response import Response
-import tasks
+from . import tasks
 
 class ListingViewSet(viewsets.ModelViewSet):
     """
@@ -30,13 +30,11 @@ class BookingViewSet( viewsets.ModelViewSet ):
         tasks.send_confirmation_email.delay( from_email )
         return Response( serializer.data )
 
-"""
-class UserViewSet(viewsets.ViewSet):
-    \"""
+class ReviewViewSet(viewsets.ViewSet):
+    """
     A simple ViewSet for listing or retrieving users.
-    \"""
+    """
     def list(self, request):
-        queryset = User.objects.all()
-        serializer = UserSerializer(queryset, many=True)
+        queryset = Review.objects.all()
+        serializer = ReviewSerializer(queryset, many=True)
         return Response(serializer.data)
-"""

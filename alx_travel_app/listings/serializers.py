@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Listing, Booking
+from .models import Listing, Booking, Review
 
 class ListingSerializer(serializers.ModelSerializer):
     owner_username = serializers.ReadOnlyField(source='owner.username')
@@ -37,3 +37,9 @@ class BookingSerializer(serializers.ModelSerializer):
         # total_price is calculated in the model's save method, no need to set here
         return super().create(validated_data)
 
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['id', 'listing', 'reviewer', 'rating', 'comment', 'created_at']
+        read_only_fields = ['reviewer', 'created_at']

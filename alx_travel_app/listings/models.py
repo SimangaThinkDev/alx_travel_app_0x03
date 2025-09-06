@@ -54,3 +54,4 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Review for {self.listing.title} by {self.reviewer.username} - Rating: {self.rating}"
+    
