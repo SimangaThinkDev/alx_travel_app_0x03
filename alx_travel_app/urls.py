@@ -39,6 +39,6 @@ urlpatterns = [
     path('api/', include('listings.urls')),
 
     # Swagger UI and ReDoc endpoints
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=30), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=30), name='schema-redoc'),
 ]
